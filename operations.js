@@ -9,7 +9,8 @@ async function show_candidates(){
             var ul = document.getElementById("list");
             var li = document.createElement("li");
             const val = ethers.utils.parseBytes32String(cands[i]);
-            li.innerHTML = "<p class='text-lg font-medium text-gray-900 dark:text-white'>"+val+"</p>";
+            //li.innerHTML = "<p class='text-lg font-medium text-gray-900 dark:text-white'>"+val+"</p>";
+            li.innerHTML = "<input id='default-radio-1' type='radio' value='' name='default-radio' class='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'><label for='default-radio-1' class='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>"+val+"</label>";
             ul.appendChild(li); 
         }
     }else{
@@ -44,7 +45,7 @@ async function add_candidate(){
 }
 
 async function vote_candidate(){
-    
+    console.log("das");
 }
 
 async function connectWallet() {
