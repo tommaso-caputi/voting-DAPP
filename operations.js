@@ -43,6 +43,10 @@ async function add_candidate(){
     }
 }
 
+async function vote_candidate(){
+    
+}
+
 async function connectWallet() {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     await provider.send("eth_requestAccounts", []);
