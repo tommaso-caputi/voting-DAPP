@@ -12,4 +12,4 @@ contract ContrattoVotazioni {
        candidati.push(nomeCognome);
     }
     
-}
+} 
