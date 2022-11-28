@@ -2,5 +2,5 @@
 Voting DAPP with html page for vote and candidate
 
 ##Screenshot
-![Alt text](/screen/standard.png?raw=true "Standard")
-![Alt text](/screen/Loading.png?raw=true "Loading")
+![Alt text](https://github.com/tommaso-caputi/voting-DAPP/blob/main/screen/standard.PNG "Standard")
+![Alt text](https://github.com/tommaso-caputi/voting-DAPP/blob/main/screen/Loading.PNG "Loading")
