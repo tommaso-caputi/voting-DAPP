@@ -7,9 +7,8 @@ contract ContrattoVotazioni {
     function getCandidates() public view returns (bytes32[] memory) {
         return candidati;
     }
-
-    function addCandidate(bytes32 nomeCognome) public {
-       candidati.push(nomeCognome);
-    }
     
-} 
+    function addCandidate(bytes32 nomeCognome) public {
+        candidati.push(nomeCognome);
+    }
+}

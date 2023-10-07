@@ -55,7 +55,7 @@ async function connectWallet() {
     document.getElementById('connectButton').style.display = 'none';
     connected = true;
     const abi = '[{"inputs":[{"internalType":"bytes32","name":"nomeCognome","type":"bytes32"}],"name":"addCandidate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getCandidates","outputs":[{"internalType":"bytes32[]","name":"","type":"bytes32[]"}],"stateMutability":"view","type":"function"}]'
-    const contractAddress = "0xECFDf9a4ec00D95b5a07996049371B708B3F4eA0"
+    const contractAddress = "0x3B533DEaaCd1C3568CB75EE668A5787174746950"
     const contract1 = new ethers.Contract(contractAddress, abi, signer);
     contract = contract1;
     show_candidates();
