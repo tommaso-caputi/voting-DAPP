@@ -2,8 +2,10 @@ let contract;
 var connected = false;
 
 async function show_candidates() {
+    show_loading(true)
     if (connected) {
         const cands = await contract.getCandidates();
+        show_loading(false)
         console.log(cands);
         var ul = document.getElementById("list");
         for (let i = 0; i < cands.length; i++) {
@@ -28,11 +30,11 @@ async function add_candidate() {
         var name = document.getElementById("name").value
         var name = ethers.utils.formatBytes32String(name);
 
-        document.getElementById("loader").style.display = 'block';
+        show_loading(true)
         const add = await contract.addCandidate(name);
         console.log(add);
         const receip = await add.wait();
-        document.getElementById("loader").style.display = 'none';
+        show_loading(false)
         console.log(receip);
 
         alert("Added " + document.getElementById("name").value);
@@ -59,4 +61,15 @@ async function connectWallet() {
     const contract1 = new ethers.Contract(contractAddress, abi, signer);
     contract = contract1;
     show_candidates();
+}
+
+
+function show_loading(bool) {
+    if (bool) {
+        console.log("start loading")
+        document.getElementById("loader").style.display = 'block';
+    } else {
+        console.log("end loading")
+        document.getElementById("loader").style.display = 'none';
+    }
 }
