@@ -46,11 +46,16 @@ async function vote_candidate() {
         show_loading(true)
         try {
             const vote = await contract.addVote(ethers.utils.formatBytes32String(selectedCandidate.value));
-            console.log(vote)
-            const receip = await vote.wait(1);
-            console.log(receip)
+            console.log(vote);
+            const receip = await vote.wait();
+            console.log(receip);
+            alert("Successfully voted: " + selectedCandidate.value);
         } catch (error) {
-            alert(error.error.message.substring(20,error.error.message.length));
+            try {
+                alert(error.error.message.substring(20, error.error.message.length));
+            } catch (error2) {
+                alert("Undefined error");
+            }
         }
         show_loading(false)
         show_candidates();
@@ -67,7 +72,7 @@ async function connectWallet() {
     document.getElementById('connectButton').style.display = 'none';
     connected = true;
     const abi = '[ { "inputs": [ { "internalType": "bytes32", "name": "nomeCognome", "type": "bytes32" } ], "name": "addCandidate", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "internalType": "bytes32", "name": "nomeCognome", "type": "bytes32" } ], "name": "addVote", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "getAllCandidates", "outputs": [ { "internalType": "bytes32[]", "name": "", "type": "bytes32[]" }, { "internalType": "uint256[]", "name": "", "type": "uint256[]" } ], "stateMutability": "view", "type": "function" }, { "inputs": [ { "internalType": "bytes32", "name": "nomeCognome", "type": "bytes32" } ], "name": "getVotes", "outputs": [ { "internalType": "uint256", "name": "", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]'
-    const contractAddress = "0xeCac41161fd5978A4a3cEA2F6B39dDB4b3F51C4c"
+    const contractAddress = "0xc4A64B044257956536078E99d81C151e11176DEA"
     const contract1 = new ethers.Contract(contractAddress, abi, signer);
     contract = contract1;
     show_candidates();
